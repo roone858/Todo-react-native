@@ -1,16 +1,16 @@
 import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   header: {
-    fontSize: 50,
+    fontSize: 40,
     fontWeight: "bold",
     margin: 40,
     color: "#ddd",
+    textAlign: "center",
   },
   container: {
-    flex: 1,
-    justifyContent: "start",
-    flexDirection: "column",
-    alignItems: "center",
+   flex:1,
+    width: "80%",
+    marginHorizontal:"auto",
     backgroundColor: "#f2f2f2",
   },
   label: {
@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   input: {
-    width: "80%",
     height: 50,
     borderColor: "#ccc",
     borderWidth: 1,
@@ -38,7 +37,7 @@ export const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#111",
-    width: "80%",
+
     borderRadius: 5,
     padding: 15,
     alignItems: "center",

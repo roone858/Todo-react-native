@@ -1,15 +1,18 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
-import { styles } from "../StyleSheet";
-import Todo from "./Todo";
 
-const TodoList = ({ todos, deleteTodo, completeTodo }) => {
+import Todo from "./Todo";
+import { ScrollView, View } from "react-native";
+
+const TodoList = ({ todos }) => {
+  // const todos = useSelector((state) => state.todos.data);
   return (
-    <>
-      {todos.map((item) => (
-        <Todo item={item} key={item.id} deleteItem={deleteTodo} completeTodo={completeTodo} />
-      ))}
-    </>
+   
+      <View style={{alignItems:"center"}} >
+        {todos.map((item) => (
+          <Todo item={item} key={item.id} />
+        ))}
+      </View>
+ 
   );
 };
 

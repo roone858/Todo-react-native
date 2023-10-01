@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
+import { useDispatch, useSelector } from "react-redux";
+import { completeTodo } from "../redux/slice/todo-slice";
 // install native-base using yarn add native-base or npm install native-base
 
-const CheckBoxComponent = ({ item, completeTodo }) => {
+const CheckBoxComponent = ({ item }) => {
   const [CheckBoxValue, setCheckBoxValue] = useState(item.isComplete);
+  // const todos = useSelector((state) => state.todos.data);
+
+  const dispatch = useDispatch();
 
   return (
     <BouncyCheckbox
@@ -13,10 +18,9 @@ const CheckBoxComponent = ({ item, completeTodo }) => {
       isChecked={CheckBoxValue}
       iconStyle={{ borderColor: "black" }}
       innerIconStyle={{ borderWidth: 2 }}
-    
       onPress={() => {
-        completeTodo(item.id, !CheckBoxValue);
         setCheckBoxValue(!CheckBoxValue);
+        dispatch(completeTodo({ id: item.id, value: !CheckBoxValue }));
       }}
     />
   );

@@ -2,18 +2,20 @@ import { View, Text, Pressable } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import CheckBoxComponent from "./CheckBoxComponent";
-import { styles } from "../StyleSheet";
+import { useDispatch } from "react-redux";
+import { deleteTodo } from "../redux/slice/todo-slice";
 
-const Todo = ({ item,deleteItem ,completeTodo}) => {
+const Todo = ({ item }) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   return (
     <View
       style={{
         flexDirection: "row",
         justifyContent: "space-between",
-        marginHorizontal: "auto",
+       
         backgroundColor: "#fff",
-        width: "80%",
+        width: "100%",
         borderColor: "black",
         borderWidth: 2,
         borderRadius: 5,
@@ -26,7 +28,7 @@ const Todo = ({ item,deleteItem ,completeTodo}) => {
           flexDirection: "row",
         }}
       >
-        <CheckBoxComponent item={item} completeTodo={completeTodo} />
+        <CheckBoxComponent item={item} />
         <Text
           style={{ color: "#111", padding: 5, fontSize: 18 }}
           onPress={() => navigation.navigate("todo-details", item)}
@@ -42,7 +44,7 @@ const Todo = ({ item,deleteItem ,completeTodo}) => {
           padding: 5,
           alignItems: "center",
         }}
-        onPress={() => deleteItem(item.id)}
+        onPress={() => dispatch(deleteTodo(item.id))}
       >
         <Text
           style={{

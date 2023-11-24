@@ -10,8 +10,8 @@ const Tab = createBottomTabNavigator();
 
 const Router = () => {
   
-  const dispach = useDispatch();
-  dispach(fetchTodos());
+  const dispatch = useDispatch();
+  dispatch(fetchTodos());
 
   return (
     <>

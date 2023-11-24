@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Day-3",
-    "slug": "Day-3",
+    "name": "Todo-app",
+    "slug": "Todo-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
